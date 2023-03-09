@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Techno Shop</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Techno_Shop.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand text-white fs-3" asp-area="" asp-controller="Home" asp-action="Index">Techno Shop</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Components
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item text-white-50" asp-area="" asp-controller="Products" asp-action="Index" asp-route-id="0">All Products</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="14">Processor</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="15">Cooler</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="16">Motherboard</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="17">RAM</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="18">Video card</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="19">SSD drive</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="7">HDD drive</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="8">Wi-Fi adapter</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="9">Power Supplye</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="10">Cables</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="11">Ventilators</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="12">Case</a></li>
+                                <li><a class="dropdown-item" asp-controller="Products" asp-action="Index" asp-route-id="13">Software</a></li>
+                            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" aria-current="page" asp-controller="SystemBlocks" asp-action="Index">
+                                System blocks
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" aria-current="page" asp-controller="Configurator" asp-action="Index">Configurator</a>
+                        </li>
+                        <li>
+                            <a class="nav-link active" aria-current="page" asp-controller="Favourite" asp-action="Index"><i class="bi bi-star text-warning"></i></a>
+                        </li>
+                        <li>
+                            <a class="nav-link active" aria-current="page" asp-controller="Cart" asp-action="Index"><i class="bi bi-cart text-white"></i></a>
+                        </li>
+                    </ul>
+
+                    <partial name="_LoginPartial" />
+
+                    <form asp-controller="Products" asp-action="Details" method="post" class="d-flex" role="search">
+                        <input name="name" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted bg-dark">
+        <div class="d-flex flex-row justify-content-between container">
+            <div>
+                &copy; 2023 - Techno Shop - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

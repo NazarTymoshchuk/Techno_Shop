@@ -1,0 +1,35 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.navbar li>a:hover {
+    color: white;
+}
+
+.favourite {
+    text-decoration: none;
+    color: #FAEE44;
+    font-size: 20px;
+    position: absolute;
+    top: 4px;
+    right: 10px;
+}
+
+.components:hover {
+    background-color: lightgrey;
+}

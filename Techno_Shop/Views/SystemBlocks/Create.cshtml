@@ -1,0 +1,108 @@
+﻿@using System.Linq;
+@model BusinessLogic.DTOs.SystemBlockModel;
+
+@{
+    var productGroups = (ViewBag.ProductGroups as List<ProductGroupVM>);
+}
+<h1>Create New Product</h1>
+
+<form asp-action="Create" method="post" class="row g-3">
+    <div class="col-md-6">
+        <label asp-for="Name" class="form-label">Name</label>
+        <input asp-for="Name" type="text" class="form-control" required placeholder="Enter name">
+        <span asp-validation-for="Name" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Price" class="form-label">Price</label>
+        <input asp-for="Price" type="number" step="0.01" class="form-control" required placeholder="Enter price">
+        <span asp-validation-for="Price" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="ImagePath" class="form-label">Image URL</label>
+        <input asp-for="ImagePath" type="text" class="form-control" required placeholder="Enter image url">
+        <span asp-validation-for="ImagePath" class="form-text text-danger"></span>
+    </div>
+        
+    @for (int i = 0; i < productGroups.Count; i++)
+    {
+        <div class="col-md-6">
+            <label asp-for="ProductIds[i]" class="form-label">Select @productGroups[i].CategoryName:</label>
+            <select asp-for="ProductIds[i]" asp-items="productGroups[i].Products" required class="form-select"></select>
+            <span asp-validation-for="ProductIds[i]" class="form-text text-danger"></span>
+        </div>
+    }
+
+   @* <div class="col-md-12">
+        <label asp-for="ProcessorId" class="form-label">Processors:</label>
+        <select asp-for="ProcessorId" asp-items="@ViewBag.Processors" required class="form-select"></select>
+        <span asp-validation-for="ProcessorId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="CoolerId" class="form-label">Coolers:</label>
+        <select asp-for="CoolerId" asp-items="@ViewBag.Coolers" required class="form-select"></select>
+        <span asp-validation-for="CoolerId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="MotherboardId" class="form-label">Motherboards:</label>
+        <select asp-for="MotherboardId" asp-items="@ViewBag.Motherboards" required class="form-select"></select>
+        <span asp-validation-for="MotherboardId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="RAMId" class="form-label">RAMs:</label>
+        <select asp-for="RAMId" asp-items="@ViewBag.RAMs" required class="form-select"></select>
+        <span asp-validation-for="RAMId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="VideoCardId" class="form-label">Video Cards:</label>
+        <select asp-for="VideoCardId" asp-items="@ViewBag.VideoCards" required class="form-select"></select>
+        <span asp-validation-for="VideoCardId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="SSDId" class="form-label">SSDs:</label>
+        <select asp-for="SSDId" asp-items="@ViewBag.SSDs" required class="form-select"></select>
+        <span asp-validation-for="SSDId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="HDDId" class="form-label">HDDs:</label>
+        <select asp-for="HDDId" asp-items="@ViewBag.HDDs" required class="form-select"></select>
+        <span asp-validation-for="HDDId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="WiFiAdapterId" class="form-label">Wi-Fi Adapters</label>
+        <select asp-for="WiFiAdapterId" asp-items="@ViewBag.WiFiAdapters" required class="form-select"></select>
+        <span asp-validation-for="WiFiAdapterId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="PowerSupplyId" class="form-label">Power Supply:</label>
+        <select asp-for="PowerSupplyId" asp-items="@ViewBag.PowerSupply" required class="form-select"></select>
+        <span asp-validation-for="PowerSupplyId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="CablesId" class="form-label">Cables:</label>
+        <select asp-for="CablesId" asp-items="@ViewBag.Cables" required class="form-select"></select>
+        <span asp-validation-for="CablesId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="VentilatorsId" class="form-label">Ventilators:</label>
+        <select asp-for="VentilatorsId" asp-items="@ViewBag.Ventilators" required class="form-select"></select>
+        <span asp-validation-for="VentilatorsId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="CaseId" class="form-label">Cases:</label>
+        <select asp-for="CaseId" asp-items="@ViewBag.Cases" required class="form-select"></select>
+        <span asp-validation-for="CaseId" class="form-text text-danger"></span>
+    </div>
+    <div class="col-md-12">
+        <label asp-for="SoftwareId" class="form-label">Software:</label>
+        <select asp-for="SoftwareId" asp-items="@ViewBag.Software" required class="form-select"></select>
+        <span asp-validation-for="SoftwareId" class="form-text text-danger"></span>
+    </div>
+*@
+    <div></div>
+    <div class="col-6">
+        <a asp-action="Index" class="btn btn-dark w-100">Back</a>
+    </div>
+    <div class="col-6">
+        <button type="submit" class="btn btn-primary w-100">Create</button>
+    </div>
+</form>

@@ -1,0 +1,32 @@
+﻿@model Data_Access.Entities.SystemBlock;
+
+<div class="card text-center">
+      <div class="card-body">
+            <h1 class="card-title">@Model.Name</h1>
+            <img src="@(Model.ImagePath ?? "https://www.freeiconspng.com/thumbs/no-image-icon/no-image-icon-15.png")" style="max-height: 500px; min-height: 500px; min-width: 400px; max-width: 400px; object-fit: contain;" class="img-fluid rounded-start" alt="Product Image">
+            <p class="card-text">
+                @foreach (var item in ViewBag.Products)
+                {
+                    <div class="d-flex justify-content-between mb-2 components">
+                        <div>
+                            @item.Name
+                        </div>
+                        <div>
+                            @item.Price$
+                        </div>
+                    </div>
+                }
+            </p>
+            <hr/>
+            <div class="d-flex justify-content-between mb-2">
+                <h5>
+                    Total Price:
+                </h5>
+                <div>
+                    @Model.Price$
+                </div>
+            </div>
+            <p></p>
+            <a asp-action="Index" class="btn btn-dark">Back</a>
+      </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model BusinessLogic.DTOs.SystemBlockModel
+
+<div class="card text-center">
+    <h2 class="card-header">Your own PC</h2>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">
+            @foreach (var item in ViewBag.Products)
+            {
+                <div class="d-flex justify-content-between mb-2">
+                    <div>
+                        @item.Name
+                    </div>
+                    <div>
+                        @item.Price$
+                    </div>
+                </div>  
+            }
+        </p>
+        <hr/>
+        <div class="d-flex justify-content-between">
+            <h4>Total price:</h4>
+            <p class="fw-bold">@ViewBag.TotalPrice$</p>
+        </div>
+        <a asp-action="Index" class="btn btn-dark">Back</a>
+        <a asp-action="Confirm" class="btn btn-info">Confirm</a>
+    </div>
+</div>
